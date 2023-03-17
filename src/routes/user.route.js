@@ -33,7 +33,7 @@ app.post("/signup", async (req, res) => {
       password: hashedPassword,
       profilePic: profilePic,
     });
-
+    await new_user.save();
     res.json({ message: "User created", new_user });
   } catch (err) {
     res.status(500).json({ message: "Server error", error: err.message });
